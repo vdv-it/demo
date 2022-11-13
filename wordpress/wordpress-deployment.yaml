@@ -12,6 +12,16 @@ spec:
     tier: frontend
   type: LoadBalancer
 ---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-storage-class
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: io1
+  iopsPerGB: '10'
+  fsType: xfs
+---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -23,7 +33,7 @@ spec:
     storage: 50Gi
   accessModes:
     - ReadWriteOnce
-  storageClassName: gp3
+  storageClassName: ebs-storage-class
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -34,10 +44,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: gp3
+  storageClassName: ebs-storage-class
   resources:
     requests:
-      storage: 20Gi
+      storage: 10Gi
   selector:
     matchLabels:
       app: wordpress
