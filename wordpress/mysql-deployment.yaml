@@ -24,7 +24,7 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  storageClassName: ebs-storage-class
+  storageClassName: gp2
   selector:
     matchLabels:
       app: wordpress
