@@ -24,7 +24,6 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  storageClassName: gp2
   selector:
     matchLabels:
       app: wordpress
