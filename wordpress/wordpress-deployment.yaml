@@ -23,12 +23,9 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10i
-  selector:
-    matchLabels:
-      app: wordpress
+      storage: 20Gi
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
@@ -41,7 +38,6 @@ spec:
       tier: frontend
   strategy:
     type: Recreate
-  replicas: 3
   template:
     metadata:
       labels:
