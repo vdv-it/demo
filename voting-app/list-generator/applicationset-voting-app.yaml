@@ -9,6 +9,7 @@ spec:
       elements:
       - namespace: dev-1
       - namespace: dev-2
+      - namespace: dev-3
   template:
     metadata:
       name: '{{namespace}}-voting-app'
