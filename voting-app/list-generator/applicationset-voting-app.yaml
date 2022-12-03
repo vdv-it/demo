@@ -18,7 +18,7 @@ spec:
       source:
         repoURL: https://github.com/kuttleio/k8s-apps.git
         targetRevision: HEAD
-        path: envs/*
+        path: voting-app/list-generator/deployment/*
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
