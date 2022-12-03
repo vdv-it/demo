@@ -8,10 +8,10 @@ spec:
       repoURL: https://github.com/kuttleio/k8s-apps.git
       revision: HEAD
       directories:
-      - path: voting-app/envs/*
+      - path: voting-app/dir-generator/kuttle-project/*
   template:
     metadata:
-      name: '{{path.basename}}-voting-app'
+      name: '{{path.basename}}-app'
     spec:
       project: default
       source:
