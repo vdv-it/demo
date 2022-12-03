@@ -3,8 +3,6 @@ kind: ApplicationSet
 metadata:
   name: voting-app
 spec:
-  syncPolicy:
-    automated: {}
   generators:
   - git:
       repoURL: https://github.com/kuttleio/k8s-apps.git
@@ -15,6 +13,8 @@ spec:
     metadata:
       name: '{{path.basename}}-app'
     spec:
+      syncPolicy:
+        automated: {}
       project: default
       source:
         repoURL: https://github.com/kuttleio/k8s-apps.git
