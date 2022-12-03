@@ -14,7 +14,9 @@ spec:
       name: '{{path.basename}}-app'
     spec:
       syncPolicy:
-        automated: {}
+        automated:
+          prune: true
+          selfHeal: true
       project: default
       source:
         repoURL: https://github.com/kuttleio/k8s-apps.git
