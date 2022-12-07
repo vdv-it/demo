@@ -15,8 +15,9 @@ spec:
     spec:
       syncPolicy:
         automated:
-          prune: true
           selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
       project: default
       source:
         repoURL: https://github.com/kuttleio/k8s-apps.git
