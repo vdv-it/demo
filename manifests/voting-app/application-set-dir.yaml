@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/kuttleio/k8s-apps.git
       revision: HEAD
       directories:
-      - path: manifests/voting-app/dir-generator/*
+      - path: manifests/voting-app/*
   template:
     metadata:
       name: "{{path.basenameNormalized}}"
