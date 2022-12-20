@@ -9,12 +9,11 @@ spec:
   source:
     repoURL: https://github.com/kuttleio/k8s-apps.git
     targetRevision: HEAD
-    path: manifests/voting-app/dev
+    path: manifests/voting-app/dev/
    
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
-    name: in-cluster
 
   syncPolicy:
     syncOptions:
