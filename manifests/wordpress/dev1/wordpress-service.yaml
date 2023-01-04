@@ -4,6 +4,8 @@ metadata:
   name: wordpress
   labels:
     app: wordpress
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: alb
 spec:
   ports:
     - port: 80

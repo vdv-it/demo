@@ -12,7 +12,7 @@ spec:
       - path: manifests/*/*
   template:
     metadata:
-    namespace: argocd
+      namespace: argocd
       name: "{{path[1]}}-{{path.basename}}"
     spec:
       destination:

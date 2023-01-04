@@ -6,13 +6,14 @@ metadata:
     app: yelb-ui
     tier: frontend
   namespace: yelb
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: alb
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
-    nodePort: 30001
   selector:
     app: yelb-ui
     tier: frontend
