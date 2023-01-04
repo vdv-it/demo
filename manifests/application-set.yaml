@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: voting-app
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/kuttleio/k8s-apps.git
+      revision: HEAD
+      directories:
+      - path: manifests/*/*
+  template:
+    metadata:
+      name: "{{path.basenameNormalized}}"
+    spec:
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{path.basenameNormalized}}"
+      project: default
+      source:
+        repoURL: https://github.com/kuttleio/k8s-apps.git
+        path: "{{path}}"
+        directory:
+          recurse: true
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true  
