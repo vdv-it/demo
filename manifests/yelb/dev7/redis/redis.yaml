@@ -1,22 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: yelb-db
-  namespace: yelb
+  name: redis-server
 spec:
   selector:
     matchLabels:
-      app: yelb-db
+      app: redis-server
   replicas: 1
   template:
     metadata:
       labels:
-        app: yelb-db
-        tier: backenddb
+        app: redis-server
+        tier: cache
     spec:
       containers:
-      - name: yelb-db
-        image: mreferre/yelb-db:0.5
+      - name: redis-server
+        image: redis:4.0.2
         ports:
-        - containerPort: 5432
+        - containerPort: 6379
         
