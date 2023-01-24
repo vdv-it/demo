@@ -1,0 +1,17 @@
+labels:
+  env: dev
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/kuttleio/k8s-apps.git
+    targetRevision: main
+
+  # Thoses default values can be surcharged by Infrastructure as Code
+  env: dev
+  clusterName: euc1-dev # the name of EKS cluster
+  blueprint: 'terraform' # cdk | terraform
+  karpenterInstanceProfile:
+  ingress:
+    type: 'alb' # nginx | alb
+    host: dev.zbsnu.click #  your domain like dev.example.com
