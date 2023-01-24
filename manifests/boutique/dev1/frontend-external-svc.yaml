@@ -3,7 +3,8 @@ kind: Service
 metadata:
   name: frontend-external
   annotations:
-         external-dns.alpha.kubernetes.io/hostname: "{{path.basename}}.dev.zbsnu.click"
+    service.beta.kubernetes.io/aws-load-balancer-type: alb
+    external-dns.alpha.kubernetes.io/hostname: "{{path.basename}}.dev.zbsnu.click"
 spec:
   type: LoadBalancer
   selector:
