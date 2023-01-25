@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namePrefix: {{path.basename}}-
+namePrefix: {{path[1]}}-
 commonAnnotations:
-  external-dns.alpha.kubernetes.io/hostname: {{path.basename}}.dev.zbsnu.click
+  external-dns.alpha.kubernetes.io/hostname: {{path[1]}}.dev.zbsnu.click
 resources:
 - service.yaml
