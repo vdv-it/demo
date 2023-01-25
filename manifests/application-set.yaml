@@ -21,7 +21,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/kuttleio/k8s-apps.git
-        path: "{{path}}/kustomization.yaml"
+        path: "{{path}}"
         directory:
           recurse: true
       syncPolicy:
