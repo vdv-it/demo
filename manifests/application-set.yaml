@@ -15,15 +15,13 @@ spec:
       namespace: argocd
       name: "{{path[1]}}-{{path.basename}}"
     spec:
-      annotations:
-         external-dns.alpha.kubernetes.io/hostname: "{{path.basename}}.dev.zbsnu.click"
       destination:
         server: https://kubernetes.default.svc
         namespace: "{{path.basename}}"
       project: default
       source:
         repoURL: https://github.com/kuttleio/k8s-apps.git
-        path: "{{path}}"
+        path: "{{path}}/kustomization.yaml"
         directory:
           recurse: true
       syncPolicy:
